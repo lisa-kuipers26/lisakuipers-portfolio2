@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 C. elegans plate experiment | Portofolio workflows</title>
-  <meta name="description" content="Portofolio" />
+  <title>2 C. elegans plate experiment | Portfolio workflows</title>
+  <meta name="description" content="Portoflio" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 C. elegans plate experiment | Portofolio workflows" />
+  <meta property="og:title" content="2 C. elegans plate experiment | Portfolio workflows" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Portofolio" />
+  <meta property="og:description" content="Portoflio" />
   <meta name="github-repo" content="portfolio" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 C. elegans plate experiment | Portofolio workflows" />
+  <meta name="twitter:title" content="2 C. elegans plate experiment | Portfolio workflows" />
   
-  <meta name="twitter:description" content="Portofolio" />
+  <meta name="twitter:description" content="Portoflio" />
   
 
 <meta name="author" content="Lisa Kuipers" />
@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2" data-path="open-peer-review.html"><a href="open-peer-review.html#probleem-in-script"><i class="fa fa-check"></i><b>3.2.2</b> Probleem in script</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="applying-the-guerrilla-analytics-framework-to-your-own-project..html"><a href="applying-the-guerrilla-analytics-framework-to-your-own-project..html"><i class="fa fa-check"></i><b>4</b> Applying the Guerrilla analytics framework to your own project.”</a></li>
+<li class="chapter" data-level="4" data-path="applying-the-guerrilla-analytics-framework-to-your-own-project..html"><a href="applying-the-guerrilla-analytics-framework-to-your-own-project..html"><i class="fa fa-check"></i><b>4</b> Applying the Guerrilla analytics framework to your own project.</a></li>
 <li class="chapter" data-level="5" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>5</b> cv</a></li>
 <li class="chapter" data-level="6" data-path="vrije-ruimte---sql.html"><a href="vrije-ruimte---sql.html"><i class="fa fa-check"></i><b>6</b> Vrije ruimte - SQL</a></li>
 </ul>
@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portofolio workflows</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio workflows</a>
           </h1>
         </div>
 
@@ -173,6 +173,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="c.-elegans-plate-experiment" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> C. elegans plate experiment<a href="c.-elegans-plate-experiment.html#c.-elegans-plate-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In dit onderzoek worden C. elegans nematodes blootgesteld aan verschillende soorten stoffen. In de RawData staat het aantal nematodes geteld zijn op de plat. compConcentration geeft de concentratie van de stof aan en expType de soort stof.</p>
+<p>Er wordt een grafiek gemaakt waarbij het aantal nematode per stof op de plaat tegen de -10log concentratie wordt uitgezet.
+In het experiment is de positieve controle van dit experiment is ethanol . De negatieve controle van dit experiment is de S-medium</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="c.-elegans-plate-experiment.html#cb1-1" aria-hidden="true" tabindex="-1"></a>tabel <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>))</span>
 <span id="cb1-2"><a href="c.-elegans-plate-experiment.html#cb1-2" aria-hidden="true" tabindex="-1"></a>tabel<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.double</span>(tabel<span class="sc">$</span>compConcentration)</span>
 <span id="cb1-3"><a href="c.-elegans-plate-experiment.html#cb1-3" aria-hidden="true" tabindex="-1"></a>tabel<span class="sc">$</span>compName <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(tabel<span class="sc">$</span>compName)</span>
@@ -185,12 +188,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-10"><a href="c.-elegans-plate-experiment.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.1</span>)<span class="sc">+</span></span>
 <span id="cb1-11"><a href="c.-elegans-plate-experiment.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Concentratie (-log10) &quot;</span>,</span>
 <span id="cb1-12"><a href="c.-elegans-plate-experiment.html#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Number of offspring&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>De compConcentration was eerst het type character waardoor de labels niet op schaal lagen. Door het te veranderen naar het type van een double kan er een schaal gemaakt worden.</p>
-<p>De positieve controle van dit experiment is ethanol . De negatieve controle van dit experiment is de S-medium</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Bij het importeren van de data naar een tibble was het type van de compConcentration kolom een character. Hierdoor wordt de x-as ingedeled in groepen in plaats van schaal. Dit is aangepast naar een double.</p>
 <p>Experimentele opzet:
-1. Data plotten zodat er een globaal overzicht hebt
-2.</p>
+1. Data plotten zodat er een globaal overzicht hebt</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="c.-elegans-plate-experiment.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Genormalizeerd en gemiddelde naar 1</span></span>
 <span id="cb2-2"><a href="c.-elegans-plate-experiment.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="c.-elegans-plate-experiment.html#cb2-3" aria-hidden="true" tabindex="-1"></a>neg_controle <span class="ot">&lt;-</span> tabel <span class="sc">%&gt;%</span> <span class="fu">filter</span>(expType<span class="sc">==</span><span class="st">&quot;controlNegative&quot;</span>)</span>
@@ -200,7 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-7"><a href="c.-elegans-plate-experiment.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width=</span><span class="fl">0.1</span>)<span class="sc">+</span></span>
 <span id="cb2-8"><a href="c.-elegans-plate-experiment.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Concentratie (-log10) &quot;</span>,</span>
 <span id="cb2-9"><a href="c.-elegans-plate-experiment.html#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Number of offspring&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
 </div>
             </section>
